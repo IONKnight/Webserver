@@ -1,0 +1,25 @@
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/opt/jdk/corretto/
+Environment=CATALINA_PID=/home/flynn/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/home/flynn/tomcat
+Environment=CATALINA_BASE=/home/flynn/tomcat
+Environment='CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/home/flynn/tomcat/bin/startup.sh
+ExecStop=/home/flynn/tomcat/bin/shutdown.sh
+
+User=flynn
+Group=flynn
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
