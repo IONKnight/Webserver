@@ -1,7 +1,0 @@
-CREATE TABLE accounts (	user_id serial PRIMARY KEY,	username VARCHAR ( 50 ) UNIQUE NOT NULL,password VARCHAR ( 50 ) NOT NULL,email VARCHAR ( 255 ) UNIQUE NOT NULL);
-
-INSERT INTO accounts (username, password, email) VALUES('dave', 'password', 'dave@google.com');
-
-INSERT INTO accounts (username, password, email) VALUES('nick', 'password', 'nickgoogle.com');
-
-INSERT INTO accounts (username, password, email) VALUES('mason', 'password', 'mason@google.com');
