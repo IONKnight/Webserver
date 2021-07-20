@@ -3,10 +3,6 @@ Mistakes made
 
 * Editing sshd_config and adding AllowUsers without including the default user (centos), as I had made a mistake when copying the authorized_keys to the flynn user. This locked me out of the main system, this should of been tested on a dev instance before hand. This could be resolved with access to AWS via stopping the instance, detaching the ebs, attaching it to another, then modifying the sshd_config file and commenting out AllowUsers. Before doing this work 90% was complete only needed to finish off some of the ssh task and nginx tasks.
 
-* Got myself caught in a 503 bad gateway (on the instance I created) using epel_release version of nginx instead of using the latest from Nginx. Tried removing the previous installed package but got myself blocked (created an aws instance on my aws account with an elastic ip at 18.169.211.161 use Interview.pem to access running AWS marketplace version of Centos7). Configured the security group the same as the interview instance so it only has access via 22,80,443 and 8080.
-
-* Disabled postgres unix socket and due to tiredness couldn't get myself back out of it.
-
 
 How would you harden this system?
 =================================
